@@ -1,0 +1,20 @@
+{
+  "@@locale": "es",
+  "@@last_modified": "2026-05-29",
+  "appNombre": "Mi Aplicación",
+  "@appNombre": { "description": "Nombre de la aplicación mostrado en la interfaz" },
+  "iniciarSesion": "Iniciar sesión",
+  "@iniciarSesion": { "description": "Botón de inicio de sesión" },
+  "cerrarSesion": "Cerrar sesión",
+  "@cerrarSesion": { "description": "Botón para cerrar la sesión del usuario" },
+  "agregarCarrito": "Agregar al carrito",
+  "@agregarCarrito": { "description": "Botón para agregar producto al carrito de compras" },
+  "miCarrito": "Mi carrito",
+  "@miCarrito": { "description": "Título de la pantalla del carrito" },
+  "buscar": "Buscar",
+  "@buscar": { "description": "Placeholder del campo de búsqueda" },
+  "cargando": "Cargando...",
+  "@cargando": { "description": "Indicador de carga genérico" },
+  "errorGenerico": "Ocurrió un error. Inténtalo de nuevo.",
+  "@errorGenerico": { "description": "Mensaje de error genérico" }
+}

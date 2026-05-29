@@ -1,0 +1,20 @@
+{
+  "@@locale": "en",
+  "@@last_modified": "2026-05-29",
+  "appNombre": "My Application",
+  "@appNombre": { "description": "Application name shown in the UI" },
+  "iniciarSesion": "Sign in",
+  "@iniciarSesion": { "description": "Sign in button" },
+  "cerrarSesion": "Sign out",
+  "@cerrarSesion": { "description": "Sign out button" },
+  "agregarCarrito": "Add to cart",
+  "@agregarCarrito": { "description": "Add to cart button" },
+  "miCarrito": "My cart",
+  "@miCarrito": { "description": "Cart screen title" },
+  "buscar": "Search",
+  "@buscar": { "description": "Search field placeholder" },
+  "cargando": "Loading...",
+  "@cargando": { "description": "Generic loading indicator" },
+  "errorGenerico": "An error occurred. Please try again.",
+  "@errorGenerico": { "description": "Generic error message" }
+}

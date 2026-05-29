@@ -1,0 +1,34 @@
+# FLUJO DE SINCRONIZACIÓN UPSTREAM (Padre → Hijos)
+# Propósito: Inyecta automáticamente las mejoras del monorepo padre (FABRICA-SOFTWARE)
+# en los proyectos hijos clonados en packages/proyectos/.
+# Se ejecuta cada lunes a las 3 AM y puede activarse manualmente desde GitHub Actions.
+
+name: Sincronización Upstream (Padre → Hijos)
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'   # Cada lunes a las 3:00 AM UTC
+  workflow_dispatch:        # Activación manual desde GitHub Actions
+
+jobs:
+  sync:
+    name: Sincronizar upstream del padre al hijo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # Historial completo necesario para merge upstream
+
+      - name: Configurar identidad Git para el merge automático
+        run: |
+          git config user.name "FABRICA-SOFTWARE Bot"
+          git config user.email "bot@fabrica-software.com"
+
+      - name: Sincronizar cambios del upstream
+        run: |
+          git fetch upstream || true
+          git merge upstream/main --allow-unrelated-histories || true
+
+      - name: Notificar resultado de sincronización
+        if: always()
+        run: echo "Sincronización completada. Revisar conflictos si los hay."

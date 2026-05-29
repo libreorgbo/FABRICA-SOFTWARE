@@ -1,0 +1,46 @@
+{
+  "_comentario": "ESPAÑOL — Diccionario base del sistema. Todos los textos fijos de la interfaz van aquí. El Agente IA puede traducir este archivo completo a cualquier idioma.",
+  "comun": {
+    "guardar": "Guardar",
+    "cancelar": "Cancelar",
+    "eliminar": "Eliminar",
+    "editar": "Editar",
+    "buscar": "Buscar",
+    "cargar_mas": "Cargar más",
+    "cargando": "Cargando...",
+    "error_generico": "Ocurrió un error. Inténtalo de nuevo.",
+    "exito": "Operación exitosa",
+    "confirmar": "Confirmar",
+    "volver": "Volver"
+  },
+  "auth": {
+    "iniciar_sesion": "Iniciar sesión",
+    "cerrar_sesion": "Cerrar sesión",
+    "registrarse": "Registrarse",
+    "email": "Correo electrónico",
+    "contrasena": "Contraseña",
+    "olvidaste_contrasena": "¿Olvidaste tu contraseña?",
+    "bienvenido": "Bienvenido de nuevo"
+  },
+  "tienda": {
+    "agregar_carrito": "Agregar al carrito",
+    "comprar_ahora": "Comprar ahora",
+    "precio": "Precio",
+    "stock": "Stock disponible",
+    "sin_stock": "Sin stock",
+    "mi_carrito": "Mi carrito",
+    "finalizar_compra": "Finalizar compra"
+  },
+  "dashboard": {
+    "panel_control": "Panel de Control",
+    "estadisticas": "Estadísticas",
+    "ventas": "Ventas",
+    "productos": "Productos",
+    "clientes": "Clientes",
+    "configuracion": "Configuración"
+  },
+  "seo": {
+    "pagina_no_encontrada": "Página no encontrada",
+    "volver_inicio": "Volver al inicio"
+  }
+}

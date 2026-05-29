@@ -1,3 +1,8 @@
+// PUNTO DE ENTRADA DEL SERVIDOR NestJS
+// Propósito: Arranca la aplicación en el puerto configurado por variable de entorno PORT.
+// Configura: CORS, versionado de API por URI (/v1/), validación global de DTOs, Swagger UI.
+// Usa Fastify como adaptador HTTP (más rápido que Express en alta concurrencia).
+
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { ValidationPipe, VersioningType } from '@nestjs/common';

@@ -1,3 +1,6 @@
+// Configuración TypeScript base heredada por todos los paquetes del monorepo.
+// Cada paquete extiende este archivo con: "extends": "../../config/tsconfig.base.json"
+// Activa strict mode completo, source maps y resolución de módulos Node ESM.
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {

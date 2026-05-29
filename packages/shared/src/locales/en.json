@@ -1,0 +1,46 @@
+{
+  "_comentario": "ENGLISH — English dictionary. Add new keys here mirroring es.json. The AI Agent can auto-translate all keys from Spanish.",
+  "comun": {
+    "guardar": "Save",
+    "cancelar": "Cancel",
+    "eliminar": "Delete",
+    "editar": "Edit",
+    "buscar": "Search",
+    "cargar_mas": "Load more",
+    "cargando": "Loading...",
+    "error_generico": "An error occurred. Please try again.",
+    "exito": "Operation successful",
+    "confirmar": "Confirm",
+    "volver": "Back"
+  },
+  "auth": {
+    "iniciar_sesion": "Sign in",
+    "cerrar_sesion": "Sign out",
+    "registrarse": "Sign up",
+    "email": "Email address",
+    "contrasena": "Password",
+    "olvidaste_contrasena": "Forgot your password?",
+    "bienvenido": "Welcome back"
+  },
+  "tienda": {
+    "agregar_carrito": "Add to cart",
+    "comprar_ahora": "Buy now",
+    "precio": "Price",
+    "stock": "Available stock",
+    "sin_stock": "Out of stock",
+    "mi_carrito": "My cart",
+    "finalizar_compra": "Checkout"
+  },
+  "dashboard": {
+    "panel_control": "Control Panel",
+    "estadisticas": "Statistics",
+    "ventas": "Sales",
+    "productos": "Products",
+    "clientes": "Customers",
+    "configuracion": "Settings"
+  },
+  "seo": {
+    "pagina_no_encontrada": "Page not found",
+    "volver_inicio": "Back to home"
+  }
+}
