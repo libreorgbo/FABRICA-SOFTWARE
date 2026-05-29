@@ -123,8 +123,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: packages/moldes/backend-nestjs
-          file: packages/moldes/backend-nestjs/Dockerfile   # Path explícito al Dockerfile scaffold
-          push: false   # Cambiar a true y agregar login cuando se configure registry
-          tags: fabrica-software/backend:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          file: packages/moldes/backend-nestjs/Dockerfile
+          push: false
+          tags: fabrica-backend:latest
