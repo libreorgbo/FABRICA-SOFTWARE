@@ -1,0 +1,18 @@
+{
+  "name": "@molde/app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Flutter multi-platform app scaffold",
+  "scripts": {
+    "build:android": "flutter build apk --release",
+    "build:ios": "flutter build ios --release",
+    "build:windows": "flutter build windows --release",
+    "build:macos": "flutter build macos --release",
+    "dev": "flutter run",
+    "test": "flutter test",
+    "clean": "flutter clean"
+  },
+  "devDependencies": {
+    "@shared/contracts": "workspace:*"
+  }
+}
