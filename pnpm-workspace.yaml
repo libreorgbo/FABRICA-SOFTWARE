@@ -1,4 +1,4 @@
 packages:
   - "packages/shared"
-    - "packages/moldes/*"
-      - "packages/proyectos/*"
+  - "packages/moldes/*"
+  - "packages/proyectos/*"
