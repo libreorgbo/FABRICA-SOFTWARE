@@ -103,3 +103,99 @@ enum UserRole {
   VENDOR
   MEMBER
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MÓDULO E-LEARNING — Cursos, lecciones y progreso de alumnos
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Representa un curso publicado dentro de un tenant
+// El campo titulo es Json para soporte multilingüe: { "es": "...", "en": "..." }
+model Curso {
+  id          String    @id @default(cuid())
+  tenantId    String
+  titulo      Json                         // Multilingüe: { "es": "Título", "en": "Title" }
+  instructorId String
+  publicado   Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  lecciones   Leccion[]
+
+  @@index([tenantId])                      // Índice para filtrar por tenant
+  @@map("cursos")
+}
+
+// Lección individual dentro de un curso
+// El orden permite arrastrar-y-soltar en el editor de cursos
+model Leccion {
+  id        String   @id @default(cuid())
+  tenantId  String
+  cursoId   String
+  titulo    Json                           // Multilingüe: { "es": "...", "en": "..." }
+  orden     Int      @default(0)          // Posición de la lección dentro del curso
+  duracion  Int      @default(0)          // Duración en segundos para mostrar al alumno
+
+  curso     Curso    @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@map("lecciones")
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MÓDULO PERIÓDICO DIGITAL — Artículos con flujo editorial
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Artículo periodístico con flujo borrador → revisión → publicado
+// Soporta múltiples autores por tenant con estados de aprobación
+model Articulo {
+  id        String          @id @default(cuid())
+  tenantId  String
+  titulo    Json                            // Multilingüe: { "es": "...", "en": "..." }
+  contenido Json                            // Bloques de contenido del editor (Tiptap/Lexical)
+  autorId   String
+  estado    EstadoArticulo  @default(BORRADOR)
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  @@index([tenantId])
+  @@map("articulos")
+}
+
+// Estados del flujo editorial del periódico
+enum EstadoArticulo {
+  BORRADOR   // Redactado pero no enviado a revisión
+  REVISION   // Enviado al editor para aprobación
+  PUBLICADO  // Visible públicamente en el sitio
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MÓDULO MAYORISTA B2B — Precios escalonados por volumen
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Precio escalonado para compras mayoristas
+// Ej: de 10 a 49 unidades = $8.00, de 50 a 99 = $6.50, 100+ = $5.00
+model PrecioMayorista {
+  id          String  @id @default(cuid())
+  tenantId    String
+  productoId  String
+  cantidadMin Int                          // Cantidad mínima para aplicar este precio
+  cantidadMax Int?                         // Cantidad máxima (null = sin límite superior)
+  precio      Decimal @db.Decimal(10, 2)
+  moneda      String  @default("USD")
+
+  @@index([tenantId])
+  @@map("precios_mayoristas")
+}
+
+// Registro de clientes aprobados para comprar en modo mayorista
+// Requiere aprobación manual del administrador del tenant
+model ClienteMayorista {
+  id          String  @id @default(cuid())
+  tenantId    String
+  usuarioId   String  @unique               // Un usuario solo puede ser mayorista una vez
+  aprobado    Boolean @default(false)        // El admin debe aprobar manualmente
+  limiteMin   Decimal @db.Decimal(10, 2)    // Monto mínimo de compra por orden
+
+  @@index([tenantId])
+  @@map("clientes_mayoristas")
+}
