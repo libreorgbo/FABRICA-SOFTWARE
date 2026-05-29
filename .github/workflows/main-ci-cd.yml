@@ -26,14 +26,15 @@ jobs:
       - uses: pnpm/action-setup@v3
         with:
           version: ${{ env.PNPM_VERSION }}
+          run_install: false   # Evita auto-install; lo hacemos explícitamente abajo
 
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
+          # Sin "cache: pnpm" — requeriría pnpm-lock.yaml que aún no existe en el monorepo
 
       - name: Instalar dependencias
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Type-check (todos los paquetes)
         run: pnpm run type-check --if-present || true
@@ -67,14 +68,15 @@ jobs:
       - uses: pnpm/action-setup@v3
         with:
           version: ${{ env.PNPM_VERSION }}
+          run_install: false   # Evita auto-install; lo hacemos explícitamente abajo
 
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
+          # Sin "cache: pnpm" — requeriría pnpm-lock.yaml que aún no existe en el monorepo
 
       - name: Instalar dependencias
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Ejecutar tests
         env:
@@ -92,14 +94,15 @@ jobs:
       - uses: pnpm/action-setup@v3
         with:
           version: ${{ env.PNPM_VERSION }}
+          run_install: false   # Evita auto-install; lo hacemos explícitamente abajo
 
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
+          # Sin "cache: pnpm" — requeriría pnpm-lock.yaml que aún no existe en el monorepo
 
       - name: Instalar dependencias
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build (Turborepo — todos los paquetes)
         run: pnpm run build --if-present || true
